@@ -9,10 +9,12 @@ if($token == "monTokenVesoul") {
   echo $challenge;
 }
 
-$input = file_get_contents('php://input')
+$input = json_decode(file_get_contents('php://input'), true);
 
-var_dump($input);
+$userID = $input['entry'][0]['messaging'][0]['sender']['id'];
 
+$message = $input['entry'][0]['messaging'][0]['message']['text'];
 
+echo $userID." and ".$message; 
 
  ?>
